@@ -1,0 +1,49 @@
+
+
+const express = require('express');
+const http = require('http');
+const { Server } = require('socket.io');
+const cors = require('cors');
+
+const app = express();
+app.use(cors());
+
+const server = http.createServer(app);
+const io = new Server(server, {
+  cors: {
+    origin: '*',
+  }
+});
+
+// Simulate receiving data from physical device
+function simulateSensorData() {
+  const weatherOptions = ['Sunny', 'Cloudy', 'Rainy', 'Windy'];
+  const diseases = ['Blight', 'Rust', 'Wilt', 'None'];
+  const preventions = {
+    'Blight': 'Use copper-based fungicides and remove infected plants.',
+    'Rust': 'Apply sulfur fungicide and practice crop rotation.',
+    'Wilt': 'Ensure proper drainage and use disease-resistant seeds.',
+    'None': 'No action needed. Continue monitoring.'
+  };
+
+  const disease = diseases[Math.floor(Math.random() * diseases.length)];
+  const data = {
+    weather: weatherOptions[Math.floor(Math.random() * weatherOptions.length)],
+    temperature: (20 + Math.random() * 15).toFixed(1),
+    location: 'Farm Field A',
+    timestamp: Date.now(),
+    disease: disease,
+    prevention: preventions[disease],
+    affectedPercentage: disease === 'None' ? 0 : Math.floor(Math.random() * 60) + 10
+  };
+
+  io.emit('sensorData', data);
+  console.log('Sent data:', data);
+}
+
+// Emit simulated data every 5 seconds
+setInterval(simulateSensorData, 5000);
+
+server.listen(3000, () => {
+  console.log('🚀 Backend server running on http://localhost:3000');
+});

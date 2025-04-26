@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AGRONO - Agricultural Technology Solutions</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    
+    body {
+      background-color: black;
+      width: 100vw;
+    }
+    
+    .container {
+      width: 100vw;
+      margin: 0 auto;
+      background: linear-gradient(black, rgb(7, 100, 7));
+      position: relative;
+      color: white;
+      overflow: hidden;
+    }
+   
+   
+    /* Navigation */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+    }
+    
+    .logo {
+      font-weight: bold;
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    
+    .contact-btn {
+      background-color: lime;
+      color: black;
+      padding: 8px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    
+    /* Hero Section */
+    .hero {
+      display: flex;
+      padding:  40px;
+      position: relative;
+    }
+    
+    .hero-content {
+      width: 40%;
+      padding-bottom: 50px;
+    }
+    
+    .hero-content h1 {
+      font-size: 80px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero h2{
+      font-size: 30px;
+    }
+    
+    .hero-image {
+      width: 20%;
+      height: 30%;
+      position: relative;
+    }
+    
+    .hero-image img {
+      width: 100%;
+      display: block;
+    }
+    
+    .circle-bg {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background-color: rgba(41, 99, 22, 0.7);
+      top: 50%;
+      left: 50%;
+      transform: translate(-80%, -50%);
+      z-index: 1;
+    }
+    
+    .hero-description {
+      position: absolute;
+      width: 300px;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-80%);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    
+    .add-thoughts {
+      color: #ffc24c;
+      margin-top: 20px;
+      display: block;
+      font-size: 14px;
+    }
+    
+    .add-thoughts::after {
+      content: "›";
+      margin-left: 5px;
+    }
+    
+    /* Features Section */
+    .features {
+      display: flex;
+      background-color: white;
+      margin: 0 40px;
+      border-radius: 6px 6px 0 0;
+      overflow: hidden;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .feature-left {
+      flex: 1;
+      padding: 30px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .feature-image {
+      width: 40%;
+    }
+    
+    .feature-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .feature-content {
+      width: 60%;
+      padding-left: 20px;
+    }
+    
+    .feature-content h2 {
+      color: #333;
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+    
+    .feature-content p {
+      color: #777;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    
+    .feature-right {
+      flex: 1;
+      background-color: #1d1d1d;
+      padding: 30px;
+      color: white;
+    }
+    
+    .services-header {
+      margin-bottom: 20px;
+    }
+    
+    .services-header h3 {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    
+    .dots {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 20px;
+    }
+    
+    .dot {
+      width: 8px;
+      height: 8px;
+      background-color: #333;
+      border-radius: 50%;
+    }
+    
+    .dot.active {
+      background-color: #fff;
+    }
+    
+    .service {
+      margin-bottom: 20px;
+    }
+    
+    .service h4 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    
+    .service p {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #aaa;
+      margin-bottom: 10px;
+    }
+    
+    .read-more {
+      color: #aaa;
+      font-size: 14px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    
+    .read-more::after {
+      content: "›";
+      margin-left: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Navigation -->
+    <nav class="nav">
+      <div class="logo">ADAPTA</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#">About</a>
+        <a href="#">Profile</a>
+        <a href="#">Dashboard</a>
+    
+      </div>
+      <a href="#" class="contact-btn" style="background-color: lime;">Sign Up</a>
+    </nav>
+    
+    <!-- Hero Section -->
+    <div class="hero">
+      <div class="hero-content">
+        <h1>ADAPTA</h1>
+        <h2>Enjoy Sustainable Farming</h2>
+        <p>At Farming Futures, we're dedicated to pioneering the future of 
+          agriculture through innovation, connectivity, and sustainable
+           practices.</p>
+
+           <p>Where agriculture meets innovation. Our platform is dedicated to 
+            empowering farmers with cutting-edge technology and comprehensive
+             solutions that streamline operations, enhance productivity, and 
+             ensure sustainability.</p>
+      </div>
+      <div class="hero-image">
+        <img src="./images/farmer.png" alt="Farmer carrying vegetables in a basket">
+      </div>
+      <div class="hero-description">
+        <p>Where agriculture meets innovation. Our platform is dedicated to 
+          empowering farmers with cutting-edge technology and comprehensive
+           solutions that streamline operations, enhance productivity, and 
+           ensure sustainability.</p>
+        <a href="#" class="add-thoughts">Add your thoughts</a>
+      </div>
+    </div>
+    
+    <!-- Features Section -->
+    <div class="features">
+      <div class="feature-left">
+        <div class="feature-image">
+          <img src="/api/placeholder/200/200" alt="Fresh vegetables">
+        </div>
+        <div class="feature-content">
+          <h2>Farming Futures: Innovate, Connect, Thrive</h2>
+          <p>At Farming Futures, we're dedicated to pioneering the future of 
+            agriculture through innovation, connectivity, and sustainable
+             practices.</p>
+        </div>
+      </div>
+      <div class="feature-right">
+        <div class="services-header">
+          <h3>Our Range of Services</h3>
+          <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+        <div class="service">
+          <h4>Crop Monitoring and Management</h4>
+          <p>Crop Monitoring and Management lies at the core of our farming platform, where advanced tools enable precise crop monitoring and efficient seasonal management.</p>
+          <a href="#" class="read-more">Read more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Simple script to handle dot navigation if needed
+    document.addEventListener('DOMContentLoaded', function() {
+      const dots = document.querySelectorAll('.dot');
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          dots.forEach(d => d.classList.remove('active'));
+          dot.classList.add('active');
+          // Additional logic for changing content would go here
+        });
+      });
+    });
+  </script>
+</body>
+</html>
