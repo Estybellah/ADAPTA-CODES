@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADAPTA AgriPulse - Profile</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* Header/Navigation Bar */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #121212;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #28b463;
+        }
+
+        .logo-subtext {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #28b463;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+    
+        }
+        
+
+        .nav-links a{
+            color: #9e9e9e;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: #ffffff;
+        }
+
+        .nav-link.active {
+            border-bottom: 2px solid #28b463;
+            padding-bottom: 0.2rem;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .login-btn {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background-color: transparent;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .signup-btn {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background-color: #28b463;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .signup-btn:hover {
+            background-color: #219955;
+        }
+
+        /* Main Content */
+        .main-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            color: #9e9e9e;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .tab.active {
+            background-color: #252525;
+            color: #ffffff;
+        }
+
+        /* Profile Section */
+        .profile-section {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            color: #9e9e9e;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-label {
+            color: #ffffff;
+            font-size: 0.9rem;
+        }
+
+        .form-input {
+            background-color: #252525;
+            border: none;
+            border-radius: 5px;
+            padding: 0.8rem 1rem;
+            color: #ffffff;
+            font-size: 0.9rem;
+        }
+
+        .form-input::placeholder {
+            color: #6e6e6e;
+        }
+
+        .edit-btn {
+            background-color: #28b463;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 0.8rem 1.5rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 1.5rem;
+            align-self: flex-start;
+        }
+
+        .edit-btn:hover {
+            background-color: #219955;
+        }
+
+        /* Footer Banner */
+        .footer-banner {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            padding: 0.5rem 1rem;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-top-left-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .heart-icon {
+            color: #f44336;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                margin: 1rem 0;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-container {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .auth-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .login-btn, .signup-btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .tab {
+                padding: 0.8rem 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <div class="logo">
+            <span class="logo-text">ADAPTA</span>
+           
+        </div>
+        
+        <nav class="nav-links">
+            <a href="index.html" class="">Home</a>
+            <a href="index.html#about" class="">About</a>
+            <a href="dashboard.html" class="">Dashboard</a>
+            <a href="profile.html" class="nav-link active">Profile</a>
+        </nav>
+        
+        <!-- <div class="auth-buttons">
+            <a href="#" class="login-btn">Login</a>
+            <a href="#" class="signup-btn">Sign Up</a>
+        </div> -->
+    </header>
+    
+    <!-- Main Content -->
+    <main class="main-container">
+        <h1 class="page-title">Your Profile</h1>
+        
+        <!-- Tabs -->
+        <div class="tabs">
+            <div class="tab active">Personal Information</div>
+            <!-- <div class="tab">Farm Details</div>
+            <div class="tab">Security</div> -->
+        </div>
+        
+        <!-- Profile Information Section -->
+        <section class="profile-section">
+            <h2 class="section-title">Personal Information</h2>
+            <p class="section-subtitle">Update your personal information and contact details.</p>
+            
+            <div class="form-grid">
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-input" value="enter your name" readonly>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" value="enter your email" readonly>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Phone</label>
+                    <input type="tel" class="form-input" value="enter your phone number" readonly>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Location</label>
+                    <input type="text" class="form-input" value="enter your Location" readonly>
+                </div>
+            </div>
+            
+            <button class="edit-btn">Edit Profile</button>
+        </section>
+    </main>
+    
+    <!-- Footer Banner -->
+    <div class="footer-banner">
+        Edit with <span class="heart-icon">♥</span> lovable
+    </div>
+
+    <script>
+        // JavaScript for tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // In a real application, you would show the corresponding content here
+                });
+            });
+            
+            // Handle Edit Profile button
+            const editBtn = document.querySelector('.edit-btn');
+            
+            editBtn.addEventListener('click', function() {
+                const inputs = document.querySelectorAll('.form-input');
+                
+                // Toggle readonly attribute for all inputs
+                inputs.forEach(input => {
+                    input.readOnly = !input.readOnly;
+                });
+                
+                // Change button text based on state
+                if (inputs[0].readOnly) {
+                    editBtn.textContent = 'Edit Profile';
+                } else {
+                    editBtn.textContent = 'Save Changes';
+                }
+            });
+            
+            // Handle navigation links
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

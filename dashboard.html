@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farm Health Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+
+
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: black;
+  color: white;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: green;
+}
+
+#status {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#data-container {
+  background: black;
+  padding: 20px;
+  border-radius: 8px;
+  color: whi;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.toHome{
+    width: 14%;
+    border-radius: 10px;
+    background-color: rgb(157, 197, 197);
+    padding: 1% 2%;
+}
+.toHome a{
+    font-size: 18px;
+    color: white;
+}
+body a{text-decoration: none;}
+</style>
+<body class="bg-green-50 min-h-screen p-6">
+    <div class="toHome">
+        <a href="index.html">Back to Home</a>
+    </div>
+  <header class="mb-6">
+    <h1 class="text-3xl font-bold text-green-800 mt-5">🌾 Farm Health Dashboard</h1>
+    <p class="text-gray-600 text-center mb-5">Monitor real-time crop data and prevent disease spread</p>
+  </header>
+
+  <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+    <div class="bg-white rounded-xl shadow p-4">
+      <h2 class="text-xl font-semibold text-green-700">🌤️ Weather</h2>
+      <p id="weather" class="text-gray-800">Loading...</p>
+    </div>
+    <div class="bg-white rounded-xl shadow p-4">
+      <h2 class="text-xl font-semibold text-green-700">🌡️ Temperature</h2>
+      <p id="temperature" class="text-gray-800">Loading...</p>
+    </div>
+    <div class="bg-white rounded-xl shadow p-4">
+      <h2 class="text-xl font-semibold text-green-700">🕒 Last Scan</h2>
+      <p id="lastScan" class="text-gray-800">Waiting for data...</p>
+    </div>
+    <div class="bg-white rounded-xl shadow p-4">
+      <h2 class="text-xl font-semibold text-green-700">📍 Location</h2>
+      <p id="location" class="text-gray-800">Loading...</p>
+    </div>
+  </section>
+
+  <section class="bg-white rounded-xl shadow p-4 mb-6">
+    <h2 class="text-xl font-semibold text-green-700 mb-4">🌱 Farm Disease Overview</h2>
+    <canvas id="diseaseChart" width="400" height="200"></canvas>
+  </section>
+
+  <section class="bg-white rounded-xl shadow p-4">
+    <h2 class="text-xl font-semibold text-green-700 mb-4">🩺 Detailed Analysis & Prevention</h2>
+    <div id="analysis" class="text-gray-800">
+      Waiting for analysis data from scanning device...
+    </div>
+  </section>
+
+  <script src="app.js" src="server.js">
+
+
+
+  </script>
+</body>
+</html>
